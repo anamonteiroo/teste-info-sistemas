@@ -2,7 +2,7 @@
   "name": "teste-info-sistemas",
   "version": "1.0.0",
   "description": "Teste técnico para vaga de Backend",
-  "main": "./src/server.js",
+  "main": "./src/api/server.js",
   "scripts": {
     "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"

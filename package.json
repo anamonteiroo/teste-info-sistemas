@@ -1,0 +1,14 @@
+{
+  "name": "teste-info-sistemas",
+  "version": "1.0.0",
+  "description": "Teste técnico para vaga de Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ana Monteiro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

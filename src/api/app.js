@@ -9,19 +9,44 @@ const dataFilePath = 'src/models/veiculos.json';
 
 app.get('/veiculos', (req, res) => {
     fs.readFile(dataFilePath, 'utf8', (err, data) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).json({ error: 'Erro ao ler os veículos.' });
-      }
-  
-      try {
-        const veiculos = JSON.parse(data);
-        res.json(veiculos);
-      } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Erro ao processar os veículos.' });
-      }
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Erro ao ler os veículos.' });
+        }
+
+        try {
+            const veiculos = JSON.parse(data);
+            res.json(veiculos);
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Erro ao processar os veículos.' });
+        }
     });
-  });
+});
+
+app.get('/veiculos/:id', (req, res) => {
+    const veiculoId = req.params.id;
+
+    fs.readFile(dataFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Erro ao ler os veículos.' });
+        }
+
+        try {
+            const veiculos = JSON.parse(data);
+            const veiculo = veiculos.find(v => v.id === veiculoId);
+
+            if (!veiculo) {
+                return res.status(404).json({ error: 'Veículo não encontrado.' });
+            }
+
+            res.json(veiculo);
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Erro ao processar os veículos.' });
+        }
+    });
+});
 
 module.exports = app

@@ -1,26 +1,20 @@
 const express = require("express");
 const fs = require('fs');
+const { get } = require('../controllers/get');
 
 const router = express.Router();
 
 const dataFilePath = 'src/models/veiculos.json';
 
 router.get('/', (req, res) => {
-    fs.readFile(dataFilePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).json({ error: 'Erro ao ler os veículos.' });
-        }
 
         try {
-            const veiculos = JSON.parse(data);
-            res.json(veiculos);
+            get(req, res);
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: 'Erro ao processar os veículos.' });
         }
     });
-});
 
 router.get('/:id', (req, res) => {
     const veiculoId = req.params.id;

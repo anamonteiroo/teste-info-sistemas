@@ -9,9 +9,9 @@ const getAll = (req, res) => {
             return res.status(500).json({ error: 'Erro ao ler os veículos.' });
         };
 
-            const veiculos = JSON.parse(data);
-            res.json(veiculos);
-        
+        const veiculos = JSON.parse(data);
+        res.json(veiculos);
+
     });
 };
 

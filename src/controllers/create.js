@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const dataFilePath = 'src/models/veiculos.json';
 
-const post = (req, res) => {
+const create = (req, res) => {
     fs.readFile(dataFilePath, 'utf8', (err, data) => {
         const newVeiculo = req.body;
 
@@ -24,7 +24,7 @@ const post = (req, res) => {
                     res.status(201).json(newVeiculo);
                 });
         });
-    })
+    });
 };
 
-module.exports = { post };
+module.exports =  create;

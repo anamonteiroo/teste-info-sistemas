@@ -7,7 +7,7 @@ const getAll = (req, res) => {
         if (err) {
             console.error(err);
             return res.status(500).json({ error: 'Erro ao ler os veículos.' });
-        }
+        };
 
             const veiculos = JSON.parse(data);
             res.json(veiculos);
@@ -15,4 +15,4 @@ const getAll = (req, res) => {
     });
 };
 
-module.exports = { getAll };
+module.exports = getAll;

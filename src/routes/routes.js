@@ -1,14 +1,11 @@
 const express = require("express");
-const fs = require('fs');
-const { getAll } = require('../controllers/getAll');
-const { get } = require('../controllers/get');
-const { post } = require('../controllers/post');
-const { put } = require('../controllers/put');
-const { del } = require("../controllers/delete");
+const getAll = require('../controllers/getAll');
+const get = require('../controllers/get');
+const create = require('../controllers/create');
+const update = require('../controllers/update');
+const del = require("../controllers/delete");
 
 const router = express.Router();
-
-const dataFilePath = 'src/models/veiculos.json';
 
 router.get('/', (req, res) => {
     try {
@@ -30,7 +27,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     try {
-        post(req, res);
+        create(req, res);
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Erro ao processar os veículos.' });
@@ -39,7 +36,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     try {
-        put(req, res);
+        update(req, res);
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Erro ao processar os veículos.' });

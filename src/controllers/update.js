@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const dataFilePath = 'src/models/veiculos.json';
 
-const put = (req, res) => {
+const update = (req, res) => {
     const veiculoId = req.params.id;
     const updatedVeiculo = req.body;
 
@@ -10,7 +10,7 @@ const put = (req, res) => {
         if (err) {
             console.error(err);
             return res.status(500).json({ error: 'Erro ao ler os veículos.' });
-        }
+        };
 
         try {
             const veiculos = JSON.parse(data);
@@ -18,7 +18,7 @@ const put = (req, res) => {
 
             if (index === -1) {
                 return res.status(404).json({ error: 'Veículo não encontrado.' });
-            }
+            };
 
             veiculos[index] = { ...veiculos[index], ...updatedVeiculo };
 
@@ -26,15 +26,15 @@ const put = (req, res) => {
                 if (err) {
                     console.error(err);
                     return res.status(500).json({ error: 'Erro ao atualizar o veículo.' });
-                }
+                };
 
                 res.json(veiculos[index]);
             });
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: 'Erro ao processar os veículos.' });
-        }
+        };
     });
 };
 
-module.exports = { put };
+module.exports = update;

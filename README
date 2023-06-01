@@ -1,0 +1,62 @@
+# Teste técnico vaga Backend - Nodejs
+
+Este é um teste técnico para a vaga de desenvolvedor/a Backend na empresa InfoSistemas.
+
+## Funcionalidades
+
+Foi desenvolvido um CRUD simples onde temos as seguintes funcionalidades:
+
+- Listar todos os veículos
+- Buscar um veículo por ID
+- Criar um novo veículo
+- Atualizar um veículo existente
+- Excluir um veículo
+
+## Tecnologias utilizadas
+
+O projeto utiliza as seguintes tecnologias:
+
+- Node.js
+- Express
+- body-parser
+- fs
+
+## Instalação
+
+1. Clone o repositório ou faça o download dos arquivos.
+
+2. Abra um terminal na pasta raiz do projeto e execute o seguinte comando para instalar as dependências:
+
+   ```bash
+   npm install
+3. Certifique-se de que existe um arquivo chamado **src/models/veiculos.json**
+
+## Executando
+
+1. Para executar o servidor, utilize o seguinte comando:
+
+    ```bash
+    npm start
+-  O servidor estará rodando em http://localhost:3000.
+2. A API possui as seguintes rotas:
+
+- GET /veiculos -> retorna todos os veículos.
+- GET /veiculos/:id -> retorna um veículo específico com base no ID.
+- POST /veiculos -> cria um novo veículo.
+- PUT /veiculos/:id -> atualiza um veículo existente com base no ID.
+- DELETE /veiculos/:id -> exclui um veículo com base no ID.
+
+##### Observações
+- Certifique-se de substituir :id pelo ID real do veículo nas rotas que exigem um ID.
+- Ao utilizar a rota POST, verifique se o id escolhido já não está registrado
+- A collection do Postman está localizada na raiz do projeto. Basta abrir ela no Postman e utilizar com o devido body e header das requisições
+
+## Testes
+
+1. Para testar basta rodar o seguinte comando:
+    ```bash
+    npx mocha --timeout 5000
+2. Caso for utilizar as rotas novamente, recrie o arquivo **src/models/veiculos.json**
+
+___
+Author: Ana Monteiro
